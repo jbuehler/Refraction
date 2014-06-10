@@ -1,18 +1,29 @@
 'use strict';
 
+var LIVERELOAD_PORT = 35729;
+
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 		connect: {
-	    server: {
+	    client: {
 	      options: {
 	        port: 9001,
-	        hostname: 'localhost',
-	        keepalive: true
+	        hostname: 'localhost'
 	      }
 	    }
 		},
+		watch: {
+      client: {
+        files: ['public/**/*.js'],
+        options: {
+          spawn: false,
+          livereload: LIVERELOAD_PORT
+        },
+        tasks: ['browserify']
+      }
+    },
 		browserify: {
 			options: {
 				bundleOptions: { debug: true }
@@ -25,6 +36,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['serve']);
-	grunt.registerTask('serve', ['browserify', 'connect']);
+	grunt.registerTask('serve', ['browserify', 'connect:client', 'watch:client']);
   grunt.registerTask('build', ['clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
