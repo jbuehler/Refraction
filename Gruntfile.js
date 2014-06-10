@@ -25,13 +25,15 @@ module.exports = function(grunt) {
       }
     },
 		browserify: {
-			options: {
-				bundleOptions: { debug: true }
-			},
-      build: {
-        src: ['public/scripts/main.js'],
-        dest: 'dist/js/game.js'
-      }
+			dev: {
+				options: {
+					bundleOptions: { debug: true }
+				},
+	      build: {
+	        src: ['public/scripts/main.js'],
+	        dest: 'dist/js/game.js'
+	      }
+			}
     }
 	});
 
