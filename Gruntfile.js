@@ -14,11 +14,11 @@ module.exports = function(grunt) {
 	    }
 		},
 		browserify: {
-			bundleOptions: {
-				debug: true
+			options: {
+				bundleOptions: { debug: true }
 			},
       build: {
-        src: ['scripts/main.js'],
+        src: ['public/scripts/main.js'],
         dest: 'dist/js/game.js'
       }
     }
