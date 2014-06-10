@@ -25,6 +25,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['serve']);
-	grunt.registerTask('serve', ['connect', 'browserify']);
+	grunt.registerTask('serve', ['browserify', 'connect']);
   grunt.registerTask('build', ['clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
