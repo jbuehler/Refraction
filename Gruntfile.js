@@ -13,13 +13,12 @@ module.exports = function(grunt) {
 	    }
 		},
 		watch: {
-      client: {
+      scripts: {
         files: ['public/**/*.js'],
         options: {
-          spawn: false,
           livereload: true
         },
-        tasks: ['browserify:dev']
+        tasks: ['browserify']
       }
     },
 		browserify: {
@@ -34,6 +33,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['serve']);
-	grunt.registerTask('serve', ['browserify', 'connect:client', 'watch:client']);
+	grunt.registerTask('serve', ['browserify', 'connect:client', 'watch']);
   grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
