@@ -1,14 +1,22 @@
 'use strict';
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+var folderMount = function folderMount(connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
 
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 		connect: {
-	    client: {
+	    dev: {
 	      options: {
 	        port: 9001,
-	        hostname: 'localhost'
+	        hostname: 'localhost',
+	        middleware: function (connect) {
+		        return [lrSnippet, folderMount(connect, '.')];
+					}
 	      }
 	    }
 		},
@@ -33,6 +41,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['serve']);
-	grunt.registerTask('serve', ['browserify', 'connect:client', 'watch']);
+	grunt.registerTask('serve', ['browserify:dev', 'connect:dev', 'watch']);
   grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
