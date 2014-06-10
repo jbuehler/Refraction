@@ -1,7 +1,5 @@
 'use strict';
 
-var LIVERELOAD_PORT = 35729;
-
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
@@ -19,9 +17,9 @@ module.exports = function(grunt) {
         files: ['public/**/*.js'],
         options: {
           spawn: false,
-          livereload: LIVERELOAD_PORT
+          livereload: true
         },
-        tasks: ['browserify']
+        tasks: ['browserify:dev']
       }
     },
 		browserify: {
@@ -29,15 +27,13 @@ module.exports = function(grunt) {
 				options: {
 					bundleOptions: { debug: true }
 				},
-	      build: {
-	        src: ['public/scripts/main.js'],
-	        dest: 'dist/js/game.js'
-	      }
-			}
+				src: ['public/scripts/main.js'],
+				dest: 'dist/js/game.js'
+      }
     }
 	});
 
 	grunt.registerTask('default', ['serve']);
 	grunt.registerTask('serve', ['browserify', 'connect:client', 'watch:client']);
-  grunt.registerTask('build', ['clean', 'jshint', 'concat', 'uglify', 'copy']);
+  grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
