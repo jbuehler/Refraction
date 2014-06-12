@@ -36,6 +36,10 @@ module.exports = function(grunt) {
 				},
 				src: ['public/scripts/main.js'],
 				dest: 'dist/js/game.js'
+      },
+      production: {
+				src: ['public/scripts/main.js'],
+				dest: 'dist/js/game.js'
       }
     }
 	});
