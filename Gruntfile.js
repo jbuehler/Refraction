@@ -41,7 +41,18 @@ module.exports = function(grunt) {
 				src: ['public/scripts/main.js'],
 				dest: 'dist/js/game.js'
       }
-    }
+    },
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-stylish'),
+        force: false
+      },
+      all: [
+        'Gruntfile.js',
+        './public/scripts/{,*/}*.js'
+      ],
+		}
 	});
 
 	grunt.registerTask('default', ['serve']);
