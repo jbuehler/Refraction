@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 	        port: 9001,
 	        hostname: 'localhost',
 	        middleware: function (connect) {
-		        return [lrSnippet, folderMount(connect, '.')];
+		        return [lrSnippet, folderMount(connect, 'dist')];
 					}
 	      }
 	    }
