@@ -29,6 +29,16 @@ module.exports = function(grunt) {
         tasks: ['browserify']
       }
     },
+    copy: {
+      dist: {
+        files: [
+          { expand: true, flatten: true, src: ['public/images/*'], dest: 'dist/images' },
+          // { expand: true, flatten: true, src: ['game/plugins/*.js'], dest: 'dist/js/plugins/' },
+          { expand: true, flatten: true, src: ['public/styles/*'], dest: 'dist/styles' },
+          { expand: true, src: ['index.html'], dest: 'dist/' }
+        ]
+      }
+    },
 		browserify: {
 			dev: {
 				options: {
@@ -56,6 +66,6 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['serve']);
-	grunt.registerTask('serve', ['browserify:dev', 'connect:dev', 'watch']);
+	grunt.registerTask('serve', ['browserify:dev', 'copy', 'connect:dev', 'watch']);
   grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy']);
 };
