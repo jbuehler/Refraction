@@ -6,6 +6,8 @@ module.exports = {
 	preload: function() {
 		this.game.stage.backgroundColor = '#3266bb';
 		this.onLoadComplete();
+
+		this.load.image('mirror', 'images/mirror.png');
 	},
 
 	create: function() {
@@ -13,7 +15,7 @@ module.exports = {
 
 	update: function() {
 		if (ready) {
-			this.game.state.start('menu');
+			this.game.state.start('one');
 		}
 	},
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var Mirror = require('../prefabs/mirror');
+var Mirror = require('../../prefabs/mirror');
 var mirror;
 
 module.exports = {
