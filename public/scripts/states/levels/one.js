@@ -1,11 +1,17 @@
 'use strict';
 
 var Mirror = require('../../prefabs/mirror');
-var mirror;
+var mirror, mirrorGroup;
 
 module.exports = {
 	create: function() {
+		this.setupMirrors();
+	},
+
+	setupMirrors: function() {
 		mirror = new Mirror(this.game, 100, 100, this);
-		this.game.add.existing(mirror);
+		mirrorGroup = this.game.add.group();
+
+		mirrorGroup.add(mirror);
 	}
 };
