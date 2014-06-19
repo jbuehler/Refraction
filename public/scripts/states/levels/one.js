@@ -10,5 +10,6 @@ module.exports = {
 
 	setupMirrors: function() {
 		var mirrors = new Mirrors();
+		mirrors.addMirrors();
 	}
 };
