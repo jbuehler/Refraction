@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     copy: {
       dist: {
         files: [
-          { expand: true, flatten: true, src: ['public/images/*'], dest: 'dist/images' },
+          { expand: true, cwd: 'public/images/', src: '**', flatten: true, filter: 'isFile', dest: 'dist/images' },
           // { expand: true, flatten: true, src: ['game/plugins/*.js'], dest: 'dist/js/plugins/' },
           { expand: true, flatten: true, src: ['public/styles/*'], dest: 'dist/styles' },
           { expand: true, src: ['index.html'], dest: 'dist/' }
