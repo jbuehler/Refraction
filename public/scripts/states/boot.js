@@ -7,7 +7,8 @@ module.exports = {
 		this.game.stage.backgroundColor = '#3266bb';
 		this.onLoadComplete();
 
-		this.load.image('mirror', 'images/scene/mirror.png');
+		this.load.image('mirror', 'images/mirror.png');
+		this.load.image('startButton', 'images/startbutton.png');
 	},
 
 	create: function() {
@@ -15,7 +16,7 @@ module.exports = {
 
 	update: function() {
 		if (ready) {
-			this.game.state.start('one');
+			this.game.state.start('menu');
 		}
 	},
 
