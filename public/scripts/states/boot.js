@@ -9,6 +9,7 @@ module.exports = {
 
 		this.load.image('mirror', 'images/mirror.png');
 		this.load.image('startButton', 'images/startbutton.png');
+		this.load.bitmapFont('kennyfont', 'images/kennyfont.png', 'images/kennyfont.fnt');
 	},
 
 	create: function() {
