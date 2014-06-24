@@ -12,7 +12,7 @@ module.exports = {
     gameText.multiLine = true;
 		menu.add(gameText);
 
-		var startText = this.game.add.bitmapText(startButton.width * 0.90, 300, 'kennyfont', 'Start', 18);
+		var startText = this.game.add.bitmapText(startButton.width * 0.80, 300, 'kennyfont', 'Start', 18);
 		menu.add(startText);
   },
   startClick: function() {
