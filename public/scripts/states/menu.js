@@ -20,7 +20,24 @@ module.exports = {
 
 		var startText = this.game.add.bitmapText(startButton.width * 0.80, 300, 'kennyfont', 'Start', 18);
 		menu.add(startText);
+
+		this.addFilter();
   },
+
+  addFilter: function() {
+		filter = this.game.add.filter('LightBeam', 200, 600);
+		filter.alpha = 1.0;
+		filter.red = 1.0;
+		filter.green = 1.0;
+		filter.blue = 2.0;
+		filter.thickness = 70.0;
+		filter.speed = 1.0;
+  },
+
+	update: function() {
+		filter.update();
+	},
+
   startClick: function() {
     this.game.state.start('one');
   }
