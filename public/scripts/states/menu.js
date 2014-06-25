@@ -1,6 +1,12 @@
 'use strict';
 
+var filter;
+
 module.exports = {
+	preload: function() {
+		filter = require('../vendor/LightBeam.js');
+	},
+
 	create: function() {
 		var menu = this.game.add.group();
 		var startButton = this.game.add.button(this.game.width / 2, 300, 'startButton', this.startClick, this);
