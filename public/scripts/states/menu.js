@@ -25,12 +25,12 @@ module.exports = {
   },
 
   addFilter: function() {
-		filter = this.game.add.filter('LightBeam', 200, 600);
+		filter = new Phaser.Filter.LightBeam(this.game);
 		filter.alpha = 1.0;
 		filter.red = 1.0;
 		filter.green = 1.0;
 		filter.blue = 2.0;
-		filter.thickness = 70.0;
+		filter.thickness = 270.0;
 		filter.speed = 1.0;
   },
 
