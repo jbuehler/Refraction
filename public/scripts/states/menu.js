@@ -14,7 +14,7 @@ module.exports = {
 
     menu.add(startButton);
 
-    var gameText = this.game.add.bitmapText(0, 100, 'kennyfont', 'To play, line up mirrors and reflect the light to collect items!', 12);
+    var gameText = this.game.add.bitmapText(0, 100, 'kennyfont', 'To play, line up mirrors and \n reflect the light to collect \n items!', 12);
     gameText.multiLine = true;
 		menu.add(gameText);
 
@@ -26,7 +26,7 @@ module.exports = {
 
   addFilter: function() {
 		filter = new Phaser.Filter.LightBeam(this.game);
-		filter.alpha = 1.0;
+		filter.alpha = 12.0;
 		filter.red = 1.0;
 		filter.green = 1.0;
 		filter.blue = 2.0;
