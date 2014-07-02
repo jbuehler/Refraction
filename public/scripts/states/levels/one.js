@@ -18,7 +18,7 @@ module.exports = {
 	},
 
 	setupBeam: function() {
-		var beam = new Beam(this.game, this.game.height, this.game.width / 2, this);
+		beam = new Beam(this.game, this.game.height, this.game.width / 2);
 		this.game.add.existing(beam);
 	}
 };

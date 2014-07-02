@@ -16,6 +16,10 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	update: function() {
 		this.bitmap.context.clearRect(0, 0, _game.width, _game.height);
 	},
+
+	fire: function() {
+		var ray = new Phaser.Line(100, _game.height, 100, 0);
+	}
 });
 
 module.exports = Beam;
