@@ -3,7 +3,7 @@
 var Mirrors = require('../../prefabs/mirrorGroup'),
 	Beam = require('../../prefabs/beam');
 
-var mirrorGroup, mirrors;
+var mirrorGroup, mirrors, fireButton, beam;
 
 module.exports = {
 	create: function() {
@@ -20,5 +20,8 @@ module.exports = {
 	setupBeam: function() {
 		beam = new Beam(this.game, this.game.height, this.game.width / 2);
 		this.game.add.existing(beam);
+
+		fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		fireButton.onDown.add(beam.fire, this);
 	}
 };
