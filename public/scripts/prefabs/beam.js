@@ -1,8 +1,10 @@
 'use strict';
 
-var Beam = function(game, x, y, frame) {
-	Phaser.Sprite.call(this, game, x, y, 'beam', frame);
-	this.anchor.setTo(0.5, 0.5);
+var Beam = function(game, x, y) {
+	Phaser.BitmapData.call(this, game, 'beam', x, y);
+
+	this.context.fillStyle = 'rgb(255, 255, 255)';
+  this.context.strokeStyle = 'rgb(255, 255, 255)';
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
