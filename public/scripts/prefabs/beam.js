@@ -1,5 +1,5 @@
 'use strict';
-var _game;
+var _game, attempted = false;
 
 var Beam = function(game, x, y) {
 	Phaser.BitmapData.call(this, game, 'beam', x, y);
@@ -18,6 +18,11 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	},
 
 	fire: function() {
+		if (attempted) {
+			return;
+		}
+
+		attempted = true;
 		var ray = new Phaser.Line(100, _game.height, 100, 0);
 	}
 });
