@@ -9,7 +9,7 @@ var Beam = function(game, x, y) {
   this.context.strokeStyle = 'rgb(255, 255, 255)';
 };
 
-Beam.prototype = Object.create(Phaser.Sprite.prototype);
+Beam.prototype = Object.create(Phaser.BitmapData.prototype);
 Beam.prototype.constructor = Beam;
 
 Phaser.Utils.extend(true, Beam.prototype, {
