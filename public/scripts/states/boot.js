@@ -8,6 +8,10 @@ module.exports = {
 		this.onLoadComplete();
 
 		this.load.image('mirror', 'images/mirror.png');
+		this.load.image('gemBlue', 'images/gemBlue.png');
+		this.load.image('gemGreen', 'images/gemGreen.png');
+		this.load.image('gemRed', 'images/gemRed.png');
+
 		this.load.image('startButton', 'images/startbutton.png');
 		this.load.bitmapFont('kennyfont', 'images/kennyfont.png', 'images/kennyfont.fnt');
 	},
