@@ -1,7 +1,9 @@
 'use strict';
 
-var Gem = function(game, x, y, frame) {
-	Phaser.Sprite.call(this, game, x, y, 'gem', frame);
+var Gem = function(game, x, y, frame, color) {
+	var name = 'gem' + color;
+
+	Phaser.Sprite.call(this, game, x, y, name, frame);
 	this.anchor.setTo(0.5, 0.5);
 };
 
