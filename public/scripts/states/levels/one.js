@@ -20,8 +20,5 @@ module.exports = {
 	setupBeam: function() {
 		beam = new Beam(this.game, this.game.height, this.game.width / 2);
 		this.game.add.image(0, 0, beam);
-
-		fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-		fireButton.onDown.add(beam.fire, this);
 	}
 };
