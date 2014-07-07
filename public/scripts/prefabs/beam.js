@@ -1,14 +1,17 @@
 'use strict';
-var fireButton, attempted = false;
+var fireButton, _velocityX, _velocityY, attempted = false;
 
-var Beam = function(game, x, y, frame) {
-	Phaser.Sprite.call(this, game, x, y, 'beam', frame);
+var Beam = function(game, frame, velocityX, velocityY) {
+	Phaser.Sprite.call(this, game, game.width/2, game.height, 'beam', frame);
 
 	this.checkWorldBounds = true;
   this.outOfBoundsKill = true;
 
   fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	fireButton.onDown.add(this.fire, this);
+
+	_velocityX = velocityX;
+	_velocityY = velocityY;
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
@@ -21,8 +24,8 @@ Phaser.Utils.extend(true, Beam.prototype, {
 		}
 
 		attempted = true;
-		this.body.velocity.x = 20;
-    this.body.velocity.y = 20;
+		this.body.velocity.x = _velocityX;
+    this.body.velocity.y = _velocityY;
 	}
 });
 
