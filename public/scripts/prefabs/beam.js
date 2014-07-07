@@ -5,7 +5,7 @@ var Beam = function(game, frame, velocityX, velocityY) {
 	Phaser.Sprite.call(this, game, game.width/2, game.height, 'beam', frame);
 
 	this.checkWorldBounds = true;
-  this.outOfBoundsKill = true;
+  this.game.physics.arcade.enableBody(this);
 
   fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	fireButton.onDown.add(this.fire, this);
