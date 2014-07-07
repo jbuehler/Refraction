@@ -11,6 +11,7 @@ module.exports = {
 		this.load.image('gemBlue', 'images/gemBlue.png');
 		this.load.image('gemGreen', 'images/gemGreen.png');
 		this.load.image('gemRed', 'images/gemRed.png');
+		this.load.image('beam', 'images/light.png');
 
 		this.load.image('startButton', 'images/startbutton.png');
 		this.load.bitmapFont('kennyfont', 'images/kennyfont.png', 'images/kennyfont.fnt');
