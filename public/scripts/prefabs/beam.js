@@ -6,6 +6,8 @@ var Beam = function(game, frame, velocityX, velocityY) {
 
 	this.checkWorldBounds = true;
   this.game.physics.arcade.enableBody(this);
+  this.scale.x = 0.2;
+  this.scale.y = 0.2;
 
   fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	fireButton.onDown.add(this.fire, this);
