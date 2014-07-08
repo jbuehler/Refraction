@@ -3,6 +3,7 @@
 var Mirror = function(game, x, y, frame) {
 	Phaser.Sprite.call(this, game, x, y, 'mirror', frame);
 	this.anchor.setTo(0.5, 0.5);
+  this.game.physics.arcade.enableBody(this);
 
 	this.inputEnabled = true;
 	this.events.onInputDown.add(this.rotateMirror, this);
