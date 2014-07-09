@@ -11,6 +11,10 @@ module.exports = {
 		this.setupBeam();
 	},
 
+	update: function() {
+		this.game.physics.arcade.collide(beam, mirrors, this.collisionHandler, null, this);
+	},
+
 	setupMirrors: function() {
 		mirrors = this.game.add.group();
 		mirrorGroup = new Mirrors(this.game, mirrors);
@@ -18,7 +22,11 @@ module.exports = {
 	},
 
 	setupBeam: function() {
-		beam = new Beam(this.game, this, 2, -1120);
+		beam = new Beam(this.game, this, -190, -1120);
 		this.game.add.existing(beam);
+	},
+
+	collisionHandler: function() {
+		console.log('hit');
 	}
 };
