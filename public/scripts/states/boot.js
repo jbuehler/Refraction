@@ -18,6 +18,7 @@ module.exports = {
 	},
 
 	create: function() {
+		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 	},
 
 	update: function() {
