@@ -16,7 +16,6 @@ MirrorGroup.prototype.constructor = MirrorGroup;
 Phaser.Utils.extend(true, MirrorGroup.prototype, {
 	addMirror: function(x, y) {
 		var mirror = new Mirror(this.game, x, y, game);
-		mirror.body.immovable = true;
 		this.add(mirror);
 	}
 });

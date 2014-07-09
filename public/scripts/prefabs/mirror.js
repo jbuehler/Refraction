@@ -5,6 +5,9 @@ var Mirror = function(game, x, y, frame) {
 	this.anchor.setTo(0.5, 0.5);
   this.game.physics.arcade.enableBody(this);
 
+  this.body.allowGravity = false;
+  this.body.immovable = true;
+
 	this.inputEnabled = true;
 	this.events.onInputDown.add(this.rotateMirror, this);
 };
