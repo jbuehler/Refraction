@@ -1,5 +1,5 @@
 'use strict';
-var fireButton, _velocityX, _velocityY, attempted = false;
+var fireButton, _velocityX, _velocityY, trail, attempted = false;
 
 var Beam = function(game, frame, velocityX, velocityY) {
 	Phaser.Sprite.call(this, game, game.width/2, game.height, 'beam', frame);
@@ -16,6 +16,10 @@ var Beam = function(game, frame, velocityX, velocityY) {
 
 	_velocityX = velocityX;
 	_velocityY = velocityY;
+
+	trail = this.game.add.bitmapData(this.game.width, this.game.height);
+	trail.context.fillStyle = '#ffffff';
+	this.game.add.sprite(0, 0, trail);
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
