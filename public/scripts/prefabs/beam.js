@@ -42,6 +42,13 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	update: function() {
 		trail.context.fillRect(this.x, this.y, 2, 2);
 		trail.dirty = false;
+	onKilled: function() {
+		this.x = this.game.width/2;
+		this.y = this.game.height;
+		this.body.velocity.setTo(0, 0);
+		this.exists = true;
+    this.visible = true;
+		attempted = false;
 	}
 });
 
