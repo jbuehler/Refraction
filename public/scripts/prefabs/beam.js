@@ -34,6 +34,11 @@ Phaser.Utils.extend(true, Beam.prototype, {
 		attempted = true;
 		this.body.velocity.x = _velocityX;
     this.body.velocity.y = _velocityY;
+	},
+
+	update: function() {
+		trail.context.fillRect(this.x, this.y, 2, 2);
+		trail.dirty = false;
 	}
 });
 
