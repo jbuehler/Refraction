@@ -5,6 +5,7 @@ var Beam = function(game, frame, velocityX, velocityY) {
 	Phaser.Sprite.call(this, game, game.width/2, game.height, 'beam', frame);
 
 	this.checkWorldBounds = true;
+	this.outOfBoundsKill = true;
   this.game.physics.arcade.enableBody(this);
   this.body.bounce.set(1);
 
@@ -20,6 +21,8 @@ var Beam = function(game, frame, velocityX, velocityY) {
 	trail = this.game.add.bitmapData(this.game.width, this.game.height);
 	trail.context.fillStyle = '#ffffff';
 	this.game.add.sprite(0, 0, trail);
+
+	this.events.onKilled.add(this.onKilled, this);
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
