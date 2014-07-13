@@ -4,8 +4,6 @@ var Mirror = require('./mirror'), game;
 
 var MirrorGroup = function(game, parent) {
   Phaser.Group.call(this, game, parent);
-  game.physics.arcade.enableBody(this);
-  this.physicsBodyType = Phaser.Physics.ARCADE;
 
   game = game;
 };
