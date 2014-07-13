@@ -12,7 +12,9 @@ module.exports = {
 	},
 
 	update: function() {
-		this.game.physics.arcade.collide(beam, mirrors, this.collisionHandler, null, this);
+		mirrors.forEach(function(mirror) {
+			this.game.physics.arcade.collide(beam, mirror, this.collisionHandler, null, this);
+		}, this);
 	},
 
 	setupMirrors: function() {
