@@ -1,10 +1,11 @@
 'use strict';
 
-var beam = require('./beam');
-
 var Mirror = function(game, x, y, frame) {
 	Phaser.Sprite.call(this, game, x, y, 'mirror', frame);
 	this.anchor.setTo(0.5, 0.5);
+
+  this.body.allowGravity = false;
+  this.body.immovable = true;
 
 	this.inputEnabled = true;
 	this.events.onInputDown.add(this.rotateMirror, this);
@@ -20,9 +21,7 @@ Phaser.Utils.extend(true, Mirror.prototype, {
 	},
 
 	update: function() {
-		this.game.physics.arcade.collide(this, beam, function() {
-			console.log('test');
-		}, null, this);
+
 	}
 });
 
