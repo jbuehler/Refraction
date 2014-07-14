@@ -7,6 +7,8 @@ var Mirror = function(game, x, y, frame) {
 
   this.body.allowGravity = false;
   this.body.immovable = true;
+	this.body.checkCollision.up = false;
+	this.body.checkCollision.right = false;
 
 	this.inputEnabled = true;
 	this.events.onInputDown.add(this.rotateMirror, this);
