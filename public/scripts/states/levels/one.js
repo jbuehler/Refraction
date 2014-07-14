@@ -28,7 +28,9 @@ module.exports = {
 		this.game.add.existing(beam);
 	},
 
-	collisionHandler: function() {
-		console.log('hit');
+	collisionHandler: function(beam, mirror) {
+		if (mirror.body.touching.left) {
+			console.log('test');
+		}
 	}
 };
