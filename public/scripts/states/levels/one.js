@@ -15,6 +15,10 @@ module.exports = {
 		mirrors.forEach(function(mirror) {
 			this.game.physics.arcade.collide(beam, mirror, this.collisionHandler, null, this);
 		}, this);
+
+		if (beam.body.touching.left) {
+			console.log('test');
+		}
 	},
 
 	setupMirrors: function() {
