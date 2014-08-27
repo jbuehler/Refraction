@@ -19,7 +19,8 @@ var Beam = function(game, frame, velocityX, velocityY) {
 	_velocityY = velocityY;
 
 	trail = this.game.add.bitmapData(this.game.width, this.game.height);
-	trail.context.fillStyle = '#ffffff';
+	trail.ctx.beginPath();
+	trail.ctx.strokeStyle = 'white';
 	this.game.add.sprite(0, 0, trail);
 
 	this.events.onKilled.add(this.onKilled, this);
@@ -39,8 +40,10 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	},
 
 	update: function() {
-		trail.context.fillRect(this.x, this.y, 2, 2);
-		trail.dirty = false;
+		trail.ctx.lineTo(this.body.x, this.body.y);
+    trail.ctx.lineWidth = 2;
+    trail.ctx.stroke();
+    trail.dirty = true;
 	},
 
 	onKilled: function() {
