@@ -37,7 +37,7 @@ module.exports = {
 	},
 
 	setupPrism: function() {
-		prism = new Prism(this.game, this, 100, 110);
+		prism = new Prism(this.game, 220, 210);
 		this.game.add.existing(prism);
 	},
 
