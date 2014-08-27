@@ -18,7 +18,7 @@ module.exports = {
 			this.game.physics.arcade.collide(beam, mirror, this.collisionHandler, null, this);
 		}, this);
 
-		this.game.physics.overlap(beam, prism, prism.breakBeam, prism.checkBeamColor, this);
+		this.game.physics.arcade.overlap(beam, prism, prism.breakBeam, prism.checkBeamColor, this);
 
 		if (beam.body.touching.left) {
 			console.log('test');
@@ -37,7 +37,7 @@ module.exports = {
 	},
 
 	setupPrism: function() {
-		prism = new Prism(this.game, this, -100, -200);
+		prism = new Prism(this.game, this, 100, 110);
 		this.game.add.existing(prism);
 	},
 
