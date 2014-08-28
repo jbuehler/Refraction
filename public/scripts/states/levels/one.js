@@ -32,7 +32,7 @@ module.exports = {
 	},
 
 	setupBeam: function() {
-		beam = new Beam(this.game, this, -190, -1120);
+		beam = new Beam(this.game, this, this.game.width/2, this.game.height, -190, -1120);
 		this.game.add.existing(beam);
 	},
 

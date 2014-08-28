@@ -1,8 +1,8 @@
 'use strict';
 var fireButton, _velocityX, _velocityY, trail, attempted = false;
 
-var Beam = function(game, frame, velocityX, velocityY) {
-	Phaser.Sprite.call(this, game, game.width/2, game.height, 'beam', frame);
+var Beam = function(game, frame, x, y, velocityX, velocityY) {
+	Phaser.Sprite.call(this, game, x, y, 'beam', frame);
 
 	this.checkWorldBounds = true;
 	this.outOfBoundsKill = true;
