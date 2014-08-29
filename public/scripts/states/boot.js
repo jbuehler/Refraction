@@ -20,6 +20,7 @@ module.exports = {
 
 	create: function() {
 		this.game.physics.startSystem(Phaser.Physics.P2JS);
+		this.game.physics.p2.applyGravity = false;
 	},
 
 	update: function() {
