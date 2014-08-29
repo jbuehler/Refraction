@@ -6,8 +6,7 @@ var Beam = function(game, frame, x, y, velocityX, velocityY) {
 
 	this.checkWorldBounds = true;
 	this.outOfBoundsKill = true;
-  this.game.physics.arcade.enableBody(this);
-  this.body.bounce.set(1);
+  this.game.physics.p2.enableBody(this);
 
   this.scale.x = 0.2;
   this.scale.y = 0.2;

@@ -11,9 +11,8 @@ var Prism = function(game, x, y, frame) {
 
 	_game = game;
 	this.anchor.setTo(0.5, 0.5);
-  game.physics.arcade.enableBody(this);
 
-  this.body.allowGravity = false;
+  game.physics.p2.enableBody(this);
   this.body.immovable = true;
 };
 
