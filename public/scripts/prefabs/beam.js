@@ -36,7 +36,8 @@ Phaser.Utils.extend(true, Beam.prototype, {
 		}
 
 		attempted = true;
-		this.body.velocity.setTo(_velocityX, _velocityY);
+		this.body.velocity.x = _velocityX;
+		this.body.velocity.y = _velocityY;
 	},
 
 	update: function() {
@@ -49,7 +50,8 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	onKilled: function() {
 		this.x = this.game.width/2;
 		this.y = this.game.height;
-		this.body.velocity.setTo(0, 0);
+		this.body.velocity.x = 0;
+		this.body.velocity.y = 0;
 		this.exists = true;
     this.visible = true;
 		attempted = false;
