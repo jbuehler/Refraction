@@ -4,8 +4,9 @@ var Mirror = function(game, x, y, frame) {
 	Phaser.Sprite.call(this, game, x, y, 'mirror', frame);
 	this.anchor.setTo(0.5, 0.5);
   game.physics.p2.enableBody(this);
+  this.body.data.gravityScale = 0;
 
-  this.body.immovable = true;
+  // this.body.immovable = true;
 	this.inputEnabled = true;
 	this.events.onInputDown.add(this.rotateMirror, this);
 };

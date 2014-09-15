@@ -13,7 +13,8 @@ var Prism = function(game, x, y, frame) {
 	this.anchor.setTo(0.5, 0.5);
 
   game.physics.p2.enableBody(this);
-  this.body.immovable = true;
+  // this.body.immovable = true;
+  this.body.data.gravityScale = 0;
 };
 
 Prism.prototype = Object.create(Phaser.Sprite.prototype);

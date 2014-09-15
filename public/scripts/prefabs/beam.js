@@ -7,6 +7,7 @@ var Beam = function(game, frame, x, y, velocityX, velocityY) {
 	this.checkWorldBounds = true;
 	this.outOfBoundsKill = true;
   this.game.physics.p2.enableBody(this);
+  this.body.data.gravityScale = 0;
 
   this.scale.x = 0.2;
   this.scale.y = 0.2;
