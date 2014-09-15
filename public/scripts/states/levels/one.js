@@ -14,15 +14,11 @@ module.exports = {
 	},
 
 	update: function() {
-		mirrors.forEach(function(mirror) {
-			this.game.physics.arcade.collide(beam, mirror, this.collisionHandler, null, this);
-		}, this);
+		// mirrors.forEach(function(mirror) {
+		// 	this.game.physics.arcade.collide(beam, mirror, this.collisionHandler, null, this);
+		// }, this);
 
-		this.game.physics.arcade.overlap(beam, prism, prism.breakBeam, null, this);
-
-		if (beam.body.touching.left) {
-			console.log('test');
-		}
+		// this.game.physics.arcade.overlap(beam, prism, prism.breakBeam, null, this);
 	},
 
 	setupMirrors: function() {

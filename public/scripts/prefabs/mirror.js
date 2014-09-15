@@ -16,8 +16,9 @@ Mirror.prototype.constructor = Mirror;
 
 Phaser.Utils.extend(true, Mirror.prototype, {
 	rotateMirror: function() {
-		var newAngle = this.angle - 40;
-		this.game.add.tween(this).to({angle: newAngle}, 100).start();
+		// var newAngle = this.angle - 40;
+		// this.game.add.tween(this).to({angle: newAngle}, 100).start();
+		this.body.rotateLeft(200);
 	}
 });
 
