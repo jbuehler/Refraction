@@ -18,12 +18,13 @@ var Beam = function(game, frame, x, y, velocityX, velocityY) {
 	_velocityX = velocityX;
 	_velocityY = velocityY;
 
-	trail = this.game.add.bitmapData(this.game.width, this.game.height);
-	trail.ctx.beginPath();
-	trail.ctx.strokeStyle = 'white';
-	this.game.add.sprite(0, 0, trail);
-
 	this.events.onKilled.add(this.onKilled, this);
+	trail = game.add.emitter(0, 0, 1000);
+  trail.makeParticles('trail');
+  trail.setRotation(0, 0);
+  trail.gravity = 0;
+  trail.setAlpha(1, 0, 6000);
+  trail.setScale(1, 0, 1, 0, 6000);
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
@@ -41,10 +42,9 @@ Phaser.Utils.extend(true, Beam.prototype, {
 	},
 
 	update: function() {
-		trail.ctx.lineTo(this.body.x, this.body.y);
-    trail.ctx.lineWidth = 2;
-    trail.ctx.stroke();
-    trail.dirty = true;
+		trail.emitX = this.body.x;
+    trail.emitY = this.body.y;
+		trail.start(true, 3000, 8);
 	},
 
 	onKilled: function() {
