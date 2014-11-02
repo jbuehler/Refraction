@@ -16,7 +16,7 @@ Mirror.prototype.constructor = Mirror;
 
 Phaser.Utils.extend(true, Mirror.prototype, {
 	rotateMirror: function() {
-		this.body.rotation = this.body.rotation - Math.PI/20
+		this.body.rotation = this.body.rotation - Math.PI/20;
 	}
 });
 

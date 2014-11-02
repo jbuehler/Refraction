@@ -10,7 +10,7 @@ module.exports = {
 	create: function() {
 		this.setupMirrors();
 		this.setupBeam();
-		this.setupPrism();
+		// this.setupPrism();
 	},
 
 	update: function() {
