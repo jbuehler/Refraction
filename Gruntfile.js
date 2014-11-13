@@ -62,10 +62,51 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         './public/scripts/{,*/}*.js'
       ],
-		}
+		},
+		cordovacli: {
+			options: {
+				path: 'build'
+			}
+		},
+    cordova: {
+      options: {
+        command: ['create','platform','plugin','build'],
+        platforms: ['ios','android'],
+        plugins: ['device','dialogs'],
+        path: 'build',
+        id: 'io.brolific.refraction',
+        name: 'Refraction'
+      }
+    },
+    create: {
+      options: {
+        command: 'create',
+        id: 'com.brolific.refraction',
+        name: 'Refraction'
+      }
+    },
+    add_platforms: {
+			options: {
+        command: 'platform',
+        action: 'add',
+        platforms: ['ios', 'android']
+      }
+    },
+    build_ios: {
+      options: {
+        command: 'build',
+        platforms: ['ios']
+      }
+    },
+    build_android: {
+      options: {
+        command: 'build',
+        platforms: ['android']
+      }
+    },
 	});
 
 	grunt.registerTask('default', ['serve']);
 	grunt.registerTask('serve', ['browserify:dev', 'copy', 'connect:dev', 'watch']);
-  grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy']);
+  grunt.registerTask('build', ['browserify:production', 'clean', 'jshint', 'concat', 'uglify', 'copy', 'cordovacli']);
 };
