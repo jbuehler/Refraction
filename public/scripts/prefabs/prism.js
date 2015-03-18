@@ -1,15 +1,14 @@
 'use strict';
 var Beam = require('./beam');
-var position, _game;
 
 var Prism = function(game, x, y, frame) {
 	Phaser.Sprite.call(this, game, x, y, 'prism', frame);
-	position = {
+	this.position = {
 		x: x,
 		y: y
 	};
 
-	_game = game;
+	this.game = game;
 	this.anchor.setTo(0.5, 0.5);
 
   game.physics.p2.enableBody(this);
@@ -28,9 +27,9 @@ Phaser.Utils.extend(true, Prism.prototype, {
 
 		// break beam into ring of colored beams
 		for (var i = 0; i < 6; i ++) {
-			var newBeam = new Beam(_game, null, position.x, position.y, velocity.x - i, velocity.y - i);
+			var newBeam = new Beam(this.game, null, this.position.x, this.position.y, velocity.x - i, velocity.y - i);
 			newBeam.body.bounce.set(1);
-			_game.add.existing(newBeam);
+			this.game.add.existing(newBeam);
 		}
 	},
 

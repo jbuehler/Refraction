@@ -1,10 +1,8 @@
 'use strict';
 
-var Mirrors = require('../../prefabs/mirrorGroup'),
-	Beam = require('../../prefabs/beam'),
-	Prism = require('../../prefabs/prism');
-
-var mirrorGroup, mirrors, beam, prism;
+var Mirrors = require('../../prefabs/mirrorGroup');
+var Beam = require('../../prefabs/beam');
+var Prism = require('../../prefabs/prism');
 
 module.exports = {
 	create: function() {
@@ -22,18 +20,18 @@ module.exports = {
 	},
 
 	setupMirrors: function() {
-		mirrors = this.game.add.group();
-		mirrorGroup = new Mirrors(this.game, mirrors);
-		mirrorGroup.addMirror(100, 100);
+		this.mirrors = this.game.add.group();
+		this.mirrorGroup = new Mirrors(this.game, this.mirrors);
+		this.mirrorGroup.addMirror(100, 100);
 	},
 
 	setupBeam: function() {
-		beam = new Beam(this.game, this, this.game.width/2, this.game.height, -190, -1120);
+		var beam = new Beam(this.game, this, this.game.width/2, this.game.height, -190, -1120);
 		this.game.add.existing(beam);
 	},
 
 	setupPrism: function() {
-		prism = new Prism(this.game, 100, 210);
+		var prism = new Prism(this.game, 100, 210);
 		this.game.add.existing(prism);
 	},
 

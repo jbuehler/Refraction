@@ -1,9 +1,8 @@
 'use strict';
 
-var ready = false;
-
 module.exports = {
 	preload: function() {
+		this.ready = false;
 		this.game.stage.backgroundColor = '#3266bb';
 		this.onLoadComplete();
 
@@ -25,12 +24,12 @@ module.exports = {
 	},
 
 	update: function() {
-		if (ready) {
+		if (this.ready) {
 			this.game.state.start('menu');
 		}
 	},
 
 	onLoadComplete: function() {
-		ready = true;
+		this.ready = true;
 	}
 };

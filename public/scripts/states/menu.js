@@ -1,10 +1,8 @@
 'use strict';
 
-var filter;
-
 module.exports = {
 	preload: function() {
-		filter = require('../vendor/LightBeam.js');
+		this.filter = require('../vendor/LightBeam.js');
 	},
 
 	create: function() {
@@ -25,17 +23,17 @@ module.exports = {
   },
 
   addFilter: function() {
-		filter = new Phaser.Filter.LightBeam(this.game);
-		filter.alpha = 12.0;
-		filter.red = 1.0;
-		filter.green = 1.0;
-		filter.blue = 2.0;
-		filter.thickness = 270.0;
-		filter.speed = 1.0;
+		this.filter = new Phaser.Filter.LightBeam(this.game);
+		this.filter.alpha = 12.0;
+		this.filter.red = 1.0;
+		this.filter.green = 1.0;
+		this.filter.blue = 2.0;
+		this.filter.thickness = 270.0;
+		this.filter.speed = 1.0;
   },
 
 	update: function() {
-		filter.update();
+		this.filter.update();
 	},
 
   startClick: function() {
