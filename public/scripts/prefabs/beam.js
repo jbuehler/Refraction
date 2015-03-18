@@ -1,50 +1,52 @@
 'use strict';
-var fireButton, _velocityX, _velocityY, trail, attempted = false;
 
 var Beam = function(game, frame, x, y, velocityX, velocityY) {
 	Phaser.Sprite.call(this, game, x, y, 'beam', frame);
-
-	this.checkWorldBounds = true;
-	this.outOfBoundsKill = true;
   this.game.physics.p2.enableBody(this);
   this.body.data.gravityScale = 0;
 
-  this.scale.x = 0.2;
-  this.scale.y = 0.2;
-
-  fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  var fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	fireButton.onDown.add(this.fire, this);
 
-	_velocityX = velocityX;
-	_velocityY = velocityY;
+	this._velocityX = velocityX;
+	this._velocityY = velocityY;
 
 	this.events.onKilled.add(this.onKilled, this);
-	trail = game.add.emitter(0, 0, 1000);
-  trail.makeParticles('trail');
-  trail.setRotation(0, 0);
-  trail.gravity = 0;
-  trail.setAlpha(1, 0, 6000);
-  trail.setScale(1, 0, 1, 0, 6000);
+
+	this.trail = game.add.emitter(0, 0, 1000);
+  this.trail.makeParticles('trail');
+  this.trail.setRotation(0, 0);
+  this.trail.gravity = 0;
+  this.trail.setAlpha(1, 0, 6000);
+  this.trail.setScale(1, 0, 1, 0, 6000);
 };
 
 Beam.prototype = Object.create(Phaser.Sprite.prototype);
 Beam.prototype.constructor = Beam;
 
 Phaser.Utils.extend(true, Beam.prototype, {
+	attempted: false,
+	checkWorldBounds: true,
+	outOfBoundsKill: true,
+	scale: {
+		x: 0.2,
+		y: 0.2
+	},
+
 	fire: function() {
-		if (attempted) {
+		if (this.attempted) {
 			return;
 		}
 
-		attempted = true;
-		this.body.velocity.x = _velocityX;
-		this.body.velocity.y = _velocityY;
+		this.attempted = true;
+		this.body.velocity.x = this._velocityX;
+		this.body.velocity.y = this._velocityY;
 	},
 
 	update: function() {
-		trail.emitX = this.body.x;
-    trail.emitY = this.body.y;
-		trail.start(true, 3000, 8);
+		this.trail.emitX = this.body.x;
+    this.trail.emitY = this.body.y;
+		this.trail.start(true, 3000, 8);
 	},
 
 	onKilled: function() {
@@ -54,7 +56,7 @@ Phaser.Utils.extend(true, Beam.prototype, {
 		this.body.velocity.y = 0;
 		this.exists = true;
     this.visible = true;
-		attempted = false;
+		this.attempted = false;
 	}
 });
 
