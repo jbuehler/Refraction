@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = {
-	preload: function() {
+	preload() {
 		this.filter = require('../vendor/LightBeam.js');
 	},
 
-	create: function() {
+	create() {
 		var menu = this.game.add.group();
 		var startButton = this.game.add.button(this.game.width / 2, 300, 'startButton', this.startClick, this);
     startButton.anchor.setTo(0.5, 0.5);
@@ -22,7 +22,7 @@ module.exports = {
 		this.addFilter();
   },
 
-  addFilter: function() {
+  addFilter() {
 		this.filter = new Phaser.Filter.LightBeam(this.game);
 		this.filter.alpha = 12.0;
 		this.filter.red = 1.0;
@@ -32,11 +32,11 @@ module.exports = {
 		this.filter.speed = 1.0;
   },
 
-	update: function() {
+	update() {
 		this.filter.update();
 	},
 
-  startClick: function() {
+  startClick() {
     this.game.state.start('one');
   }
 };

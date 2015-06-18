@@ -1,6 +1,6 @@
 'use strict';
 
-window.onload = function () {
+window.onload = () => {
   var game = new Phaser.Game(288, 505, Phaser.AUTO, 'refraction');
 
   game.state.add('boot', require('./states/boot'));

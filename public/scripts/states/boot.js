@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	preload: function() {
+	preload() {
 		this.ready = false;
 		this.game.stage.backgroundColor = '#3266bb';
 		this.onLoadComplete();
@@ -18,18 +18,18 @@ module.exports = {
 		this.load.bitmapFont('kennyfont', 'public/images/HUD/kennyfont/kennyfont.png', 'public/images/HUD/kennyfont/kennyfont.fnt');
 	},
 
-	create: function() {
+	create() {
 		this.game.physics.startSystem(Phaser.Physics.P2JS);
 		this.game.physics.p2.restitution = 0.8;
 	},
 
-	update: function() {
+	update() {
 		if (this.ready) {
 			this.game.state.start('menu');
 		}
 	},
 
-	onLoadComplete: function() {
+	onLoadComplete() {
 		this.ready = true;
 	}
 };
