@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
 	preload() {
 		this.ready = false;
 		this.game.stage.backgroundColor = '#3266bb';

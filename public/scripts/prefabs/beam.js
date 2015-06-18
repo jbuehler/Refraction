@@ -1,13 +1,13 @@
 'use strict';
 
-class Beam extends Phaser.Sprite {
+export class Beam extends Phaser.Sprite {
 	constructor(game, frame, x, y, velocityX, velocityY) {
 		super(game, x, y, 'beam', frame);
 
 		this.game.physics.p2.enableBody(this);
 	  this.body.data.gravityScale = 0;
 
-	  var fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	  let fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		fireButton.onDown.add(this.fire, this);
 
 		this._velocityX = velocityX;
@@ -56,6 +56,4 @@ class Beam extends Phaser.Sprite {
     this.visible = true;
 		this.attempted = false;
 	}
-}
-
-module.exports = Beam;
+};

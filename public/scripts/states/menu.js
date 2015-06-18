@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
 	preload() {
 		this.filter = require('../vendor/LightBeam.js');
 	},

@@ -2,7 +2,7 @@
 
 import Beam from './beam';
 
-class Prism extends Phaser.Sprite {
+export class Prism extends Phaser.Sprite {
 	constructor(game, x, y, frame) {
 		super(game, x, y, 'prism', frame);
 
@@ -22,11 +22,11 @@ class Prism extends Phaser.Sprite {
 	breakBeam(beam) {
 		beam.body.velocity.setTo(0, 0);
 		beam.destroy();
-		var velocity = beam.body.velocity;
+		let velocity = beam.body.velocity;
 
 		// break beam into ring of colored beams
-		for (var i = 0; i < 6; i ++) {
-			var newBeam = new Beam(this.game, null, this.position.x, this.position.y, velocity.x - i, velocity.y - i);
+		for (let i = 0; i < 6; i ++) {
+			let newBeam = new Beam(this.game, null, this.position.x, this.position.y, velocity.x - i, velocity.y - i);
 			newBeam.body.bounce.set(1);
 			this.game.add.existing(newBeam);
 		}
@@ -39,6 +39,4 @@ class Prism extends Phaser.Sprite {
 
 		return true;
 	}
-}
-
-module.exports = Prism;
+};
