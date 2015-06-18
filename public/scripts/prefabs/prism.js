@@ -1,26 +1,25 @@
 'use strict';
-var Beam = require('./beam');
 
-var Prism = function(game, x, y, frame) {
-	Phaser.Sprite.call(this, game, x, y, 'prism', frame);
-	this.position = {
-		x: x,
-		y: y
-	};
+import Beam from './beam';
 
-	this.game = game;
-	this.anchor.setTo(0.5, 0.5);
+class Prism extends Phaser.Sprite {
+	constructor(game, x, y, frame) {
+		super(game, x, y, 'prism', frame);
 
-  game.physics.p2.enableBody(this);
-  this.body.static = true;
-  this.body.data.gravityScale = 0;
-};
+		this.position = {
+			x: x,
+			y: y
+		};
 
-Prism.prototype = Object.create(Phaser.Sprite.prototype);
-Prism.prototype.constructor = Prism;
+		this.game = game;
+		this.anchor.setTo(0.5, 0.5);
 
-Phaser.Utils.extend(true, Prism.prototype, {
-	breakBeam: function(beam) {
+	  game.physics.p2.enableBody(this);
+	  this.body.static = true;
+	  this.body.data.gravityScale = 0;
+	}
+
+	breakBeam(beam) {
 		beam.body.velocity.setTo(0, 0);
 		beam.destroy();
 		var velocity = beam.body.velocity;
@@ -31,15 +30,15 @@ Phaser.Utils.extend(true, Prism.prototype, {
 			newBeam.body.bounce.set(1);
 			this.game.add.existing(newBeam);
 		}
-	},
+	}
 
-	checkBeamColor: function(beam) {
+	checkBeamColor(beam) {
 		if (beam.color !== 'white') {
 			return false;
 		}
 
 		return true;
 	}
-});
+}
 
 module.exports = Prism;
