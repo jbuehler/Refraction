@@ -6,16 +6,16 @@ module.exports = {
 		this.game.stage.backgroundColor = '#3266bb';
 		this.onLoadComplete();
 
-		this.load.image('mirror', 'images/mirror.png');
-		this.load.image('gemBlue', 'images/gemBlue.png');
-		this.load.image('gemGreen', 'images/gemGreen.png');
-		this.load.image('gemRed', 'images/gemRed.png');
-		this.load.image('beam', 'images/light.png');
-		this.load.image('prism', 'images/star.png');
-		this.load.image('trail', 'images/light.png');
+		this.load.image('mirror', 'public/images/scene/mirror.png');
+		this.load.image('gemBlue', 'public/images/items/gemBlue.png');
+		this.load.image('gemGreen', 'public/images/items/gemGreen.png');
+		this.load.image('gemRed', 'public/images/items/gemRed.png');
+		this.load.image('beam', 'public/images/scene/light.png');
+		this.load.image('prism', 'public/images/HUD/star.png');
+		this.load.image('trail', 'public/images/scene/light.png');
 
-		this.load.image('startButton', 'images/startbutton.png');
-		this.load.bitmapFont('kennyfont', 'images/kennyfont.png', 'images/kennyfont.fnt');
+		this.load.image('startButton', 'public/images/HUD/startbutton.png');
+		this.load.bitmapFont('kennyfont', 'public/images/HUD/kennyfont/kennyfont.png', 'public/images/HUD/kennyfont/kennyfont.fnt');
 	},
 
 	create: function() {

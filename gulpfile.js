@@ -8,7 +8,9 @@ var src = {
 };
 
 require('./gulp-includes/scripts')(gulp);
+require('./gulp-includes/clean')(gulp);
+//require('./gulp-includes/copy')(gulp);
 
-gulp.task('default', ['scripts:dev'], function() {
+gulp.task('default', ['clean', 'scripts:dev'], function() {
   gulp.watch(src.public + '**/**/*.js', ['scripts:dev']);
 });
