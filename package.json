@@ -1,34 +1,17 @@
 {
   "name": "Refraction",
-  "version": "0.0.0",
-  "description": "default",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jbuehler/Refraction.git"
-  },
-  "keywords": [
-    "refraction"
-  ],
-  "author": "jordan buehler & nate kluth",
+  "author": "jordan buehler & nathan kluth",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jbuehler/Refraction/issues"
-  },
   "homepage": "https://github.com/jbuehler/Refraction",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-connect": "^0.7.1",
-    "load-grunt-tasks": "^0.4.0",
-    "browserify": "^4.1.8",
-    "grunt-browserify": "^2.1.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "connect-livereload": "^0.4.0",
-    "grunt-contrib-copy": "^0.5.0",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
     "cordova": "^4.0.0",
-    "grunt-cordovacli": "^0.5.1"
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.5",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.2"
   }
 }
