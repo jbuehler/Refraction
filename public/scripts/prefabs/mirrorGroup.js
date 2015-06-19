@@ -2,7 +2,7 @@
 
 import Mirror from './mirror';
 
-export class MirrorGroup extends Phaser.Group {
+export default class MirrorGroup extends Phaser.Group {
 	constructor(game, parent) {
 		super(game, parent);
 	}
@@ -11,4 +11,4 @@ export class MirrorGroup extends Phaser.Group {
 		let mirror = new Mirror(this.game, x, y, 0);
 		this.add(mirror);
 	}
-};
+}

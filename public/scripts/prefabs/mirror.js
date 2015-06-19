@@ -1,6 +1,6 @@
 'use strict';
 
-export class Mirror extends Phaser.Sprite {
+export default class Mirror extends Phaser.Sprite {
 	constructor(game, x, y, frame) {
 		super(game, x, y, 'mirror', frame);
 		this.anchor.setTo(0.5, 0.5);
@@ -15,4 +15,4 @@ export class Mirror extends Phaser.Sprite {
 	rotateMirror() {
 		this.body.rotation = this.body.rotation - Math.PI/20;
 	}
-};
+}

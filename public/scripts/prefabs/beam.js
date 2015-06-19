@@ -1,6 +1,6 @@
 'use strict';
 
-export class Beam extends Phaser.Sprite {
+export default class Beam extends Phaser.Sprite {
 	constructor(game, frame, x, y, velocityX, velocityY) {
 		super(game, x, y, 'beam', frame);
 
@@ -56,4 +56,4 @@ export class Beam extends Phaser.Sprite {
     this.visible = true;
 		this.attempted = false;
 	}
-};
+}

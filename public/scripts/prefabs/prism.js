@@ -2,7 +2,7 @@
 
 import Beam from './beam';
 
-export class Prism extends Phaser.Sprite {
+export default class Prism extends Phaser.Sprite {
 	constructor(game, x, y, frame) {
 		super(game, x, y, 'prism', frame);
 
@@ -39,4 +39,4 @@ export class Prism extends Phaser.Sprite {
 
 		return true;
 	}
-};
+}
